@@ -233,11 +233,6 @@ struct ContactDetailView: View {
                 if let birthday = contact.birthdayString {
                     InfoRow(icon: "gift", label: "Birthday", value: birthday)
                 }
-
-                // Note from Apple Contacts
-                if !contact.note.isEmpty {
-                    InfoRow(icon: "note.text", label: "Note", value: contact.note)
-                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }

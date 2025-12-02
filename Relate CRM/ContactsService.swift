@@ -34,7 +34,6 @@ final class ContactsService: ObservableObject {
         CNContactBirthdayKey as CNKeyDescriptor,
         CNContactImageDataKey as CNKeyDescriptor,
         CNContactThumbnailImageDataKey as CNKeyDescriptor,
-        CNContactNoteKey as CNKeyDescriptor,
         CNContactRelationsKey as CNKeyDescriptor,
         CNContactSocialProfilesKey as CNKeyDescriptor,
         CNContactFormatter.descriptorForRequiredKeys(for: .fullName)
@@ -42,6 +41,7 @@ final class ContactsService: ObservableObject {
 
     private init() {
         checkAuthorizationStatus()
+        print("[ContactsService] Initial status: \(authorizationStatus.rawValue)")
     }
 
     /// Check current authorization status
@@ -51,48 +51,57 @@ final class ContactsService: ObservableObject {
 
     /// Request access to contacts
     func requestAccess() async -> Bool {
+        print("[ContactsService] Requesting access...")
+
         do {
             let granted = try await store.requestAccess(for: .contacts)
-            await MainActor.run {
-                checkAuthorizationStatus()
-            }
+            print("[ContactsService] Access granted: \(granted)")
+            checkAuthorizationStatus()
+            print("[ContactsService] New status: \(authorizationStatus.rawValue)")
             return granted
         } catch {
-            await MainActor.run {
-                errorMessage = "Failed to request contacts access: \(error.localizedDescription)"
-            }
+            print("[ContactsService] Error requesting access: \(error)")
+            errorMessage = "Failed to request contacts access: \(error.localizedDescription)"
             return false
         }
     }
 
     /// Fetch all contacts from the store
     func fetchContacts() async {
+        print("[ContactsService] Fetching contacts, status: \(authorizationStatus.rawValue)")
+
         guard authorizationStatus == .authorized else {
             errorMessage = "Contacts access not authorized"
+            print("[ContactsService] Not authorized")
             return
         }
 
         isLoading = true
         errorMessage = nil
 
+        // Run the synchronous enumerate on a background thread
+        let keys = keysToFetch
+        let contactStore = store
+
         do {
-            var fetchedContacts: [CNContact] = []
-            let request = CNContactFetchRequest(keysToFetch: keysToFetch)
-            request.sortOrder = .userDefault
+            let fetchedContacts: [CNContact] = try await Task.detached {
+                var results: [CNContact] = []
+                let request = CNContactFetchRequest(keysToFetch: keys)
+                request.sortOrder = .userDefault
 
-            try store.enumerateContacts(with: request) { contact, _ in
-                fetchedContacts.append(contact)
-            }
+                try contactStore.enumerateContacts(with: request) { contact, _ in
+                    results.append(contact)
+                }
+                return results
+            }.value
 
-            await MainActor.run {
-                self.contacts = fetchedContacts
-                self.isLoading = false
-            }
+            self.contacts = fetchedContacts
+            self.isLoading = false
+            print("[ContactsService] Fetched \(fetchedContacts.count) contacts")
         } catch {
-            await MainActor.run {
-                self.errorMessage = "Failed to fetch contacts: \(error.localizedDescription)"
-                self.isLoading = false
-            }
+            self.errorMessage = "Failed to fetch contacts: \(error.localizedDescription)"
+            self.isLoading = false
+            print("[ContactsService] Fetch error: \(error)")
         }
     }
 
