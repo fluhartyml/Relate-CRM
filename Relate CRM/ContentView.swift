@@ -12,6 +12,7 @@ import Contacts
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @EnvironmentObject private var contactsService: ContactsService
+    @EnvironmentObject private var deepLinkHandler: DeepLinkHandler
     @Query private var contextData: [ContactContext]
 
     @State private var searchText: String = ""
@@ -76,6 +77,12 @@ struct ContentView: View {
         .task {
             if contactsService.authorizationStatus == .authorized {
                 await contactsService.fetchContacts()
+            }
+        }
+        .onChange(of: deepLinkHandler.pendingContactID) { _, newValue in
+            if let contactID = newValue {
+                selectedContactID = contactID
+                deepLinkHandler.pendingContactID = nil
             }
         }
     }

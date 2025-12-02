@@ -1,0 +1,116 @@
+{
+  "images": [
+    {
+      "size": "1024x1024",
+      "idiom": "ios-marketing",
+      "scale": "1x",
+      "filename": "appstore-CRMKnightLight-1024.png"
+    },
+    {
+      "size": "20x20",
+      "idiom": "ipad",
+      "scale": "1x",
+      "filename": "ipad-notification-CRMKnightLight-20.png"
+    },
+    {
+      "size": "20x20",
+      "idiom": "ipad",
+      "scale": "2x",
+      "filename": "ipad-notification-2x-CRMKnightLight-40.png"
+    },
+    {
+      "size": "20x20",
+      "idiom": "iphone",
+      "scale": "2x",
+      "filename": "iphone-notification-2x-CRMKnightLight-40.png"
+    },
+    {
+      "size": "20x20",
+      "idiom": "iphone",
+      "scale": "3x",
+      "filename": "iphone-notification-3x-CRMKnightLight-60.png"
+    },
+    {
+      "size": "29x29",
+      "idiom": "ipad",
+      "scale": "1x",
+      "filename": "ipad-settings-CRMKnightLight-29.png"
+    },
+    {
+      "size": "29x29",
+      "idiom": "ipad",
+      "scale": "2x",
+      "filename": "ipad-settings-2x-CRMKnightLight-58.png"
+    },
+    {
+      "size": "29x29",
+      "idiom": "iphone",
+      "scale": "2x",
+      "filename": "iphone-settings-2x-CRMKnightLight-58.png"
+    },
+    {
+      "size": "29x29",
+      "idiom": "iphone",
+      "scale": "3x",
+      "filename": "iphone-settings-3x-CRMKnightLight-87.png"
+    },
+    {
+      "size": "40x40",
+      "idiom": "ipad",
+      "scale": "1x",
+      "filename": "ipad-spotlight-CRMKnightLight-40.png"
+    },
+    {
+      "size": "40x40",
+      "idiom": "ipad",
+      "scale": "2x",
+      "filename": "ipad-spotlight-2x-CRMKnightLight-80.png"
+    },
+    {
+      "size": "40x40",
+      "idiom": "iphone",
+      "scale": "2x",
+      "filename": "iphone-spotlight-2x-CRMKnightLight-80.png"
+    },
+    {
+      "size": "40x40",
+      "idiom": "iphone",
+      "scale": "3x",
+      "filename": "iphone-spotlight-3x-CRMKnightLight-120.png"
+    },
+    {
+      "size": "60x60",
+      "idiom": "iphone",
+      "scale": "2x",
+      "filename": "iphone-app-2x-CRMKnightLight-120.png"
+    },
+    {
+      "size": "60x60",
+      "idiom": "iphone",
+      "scale": "3x",
+      "filename": "iphone-app-3x-CRMKnightLight-180.png"
+    },
+    {
+      "size": "76x76",
+      "idiom": "ipad",
+      "scale": "1x",
+      "filename": "ipad-app-CRMKnightLight-76.png"
+    },
+    {
+      "size": "76x76",
+      "idiom": "ipad",
+      "scale": "2x",
+      "filename": "ipad-app-2x-CRMKnightLight-152.png"
+    },
+    {
+      "size": "83.5x83.5",
+      "idiom": "ipad",
+      "scale": "2x",
+      "filename": "ipad-pro-app-2x-CRMKnightLight-167.png"
+    }
+  ],
+  "info": {
+    "version": 1,
+    "author": "xcode"
+  }
+}
