@@ -107,6 +107,66 @@
       "idiom": "ipad",
       "scale": "2x",
       "filename": "ipad-pro-app-2x-CRMKnightDark-167.png"
+    },
+    {
+      "size": "16x16",
+      "idiom": "mac",
+      "scale": "1x",
+      "filename": "mac-16.png"
+    },
+    {
+      "size": "16x16",
+      "idiom": "mac",
+      "scale": "2x",
+      "filename": "mac-16@2x.png"
+    },
+    {
+      "size": "32x32",
+      "idiom": "mac",
+      "scale": "1x",
+      "filename": "mac-32.png"
+    },
+    {
+      "size": "32x32",
+      "idiom": "mac",
+      "scale": "2x",
+      "filename": "mac-32@2x.png"
+    },
+    {
+      "size": "128x128",
+      "idiom": "mac",
+      "scale": "1x",
+      "filename": "mac-128.png"
+    },
+    {
+      "size": "128x128",
+      "idiom": "mac",
+      "scale": "2x",
+      "filename": "mac-128@2x.png"
+    },
+    {
+      "size": "256x256",
+      "idiom": "mac",
+      "scale": "1x",
+      "filename": "mac-256.png"
+    },
+    {
+      "size": "256x256",
+      "idiom": "mac",
+      "scale": "2x",
+      "filename": "mac-256@2x.png"
+    },
+    {
+      "size": "512x512",
+      "idiom": "mac",
+      "scale": "1x",
+      "filename": "mac-512.png"
+    },
+    {
+      "size": "512x512",
+      "idiom": "mac",
+      "scale": "2x",
+      "filename": "mac-512@2x.png"
     }
   ],
   "info": {
