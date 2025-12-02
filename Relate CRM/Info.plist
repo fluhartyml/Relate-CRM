@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSContactsUsageDescription</key>
+	<string>Relate CRM needs access to your contacts to help you manage and track your relationships.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Relate CRM can create follow-up reminders for your contacts.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Relate CRM can show calendar events related to your contacts.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

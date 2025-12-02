@@ -12,9 +12,14 @@ import SwiftData
 struct Relate_CRMApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            ContactContext.self,
+            Interaction.self,
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: false,
+            cloudKitDatabase: .automatic
+        )
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
@@ -26,6 +31,7 @@ struct Relate_CRMApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(ContactsService.shared)
         }
         .modelContainer(sharedModelContainer)
     }
